@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lgsbooster/screens/pages/feed.dart';
+import 'package:lgsbooster/screens/pages/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,20 +12,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
-            .copyWith(secondary: Colors.amber),
+        brightness: Brightness.light,
+        primarySwatch: Colors.red,
+        accentColor: Colors.deepOrange,
       ),
       dark: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
-            .copyWith(secondary: Colors.amber),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.red,
+        accentColor: Colors.deepOrange,
       ),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'Adaptive Theme Demo',
         theme: theme,
+        debugShowCheckedModeBanner: false,
         darkTheme: darkTheme,
-        home: Feed(),
+        home: LoginScreen(),
       ),
     );
   }

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lgsbooster">
+    package="com.berkkaratas.lgsbooster">
    <application
         android:label="lgsbooster"
         android:name="${applicationName}"

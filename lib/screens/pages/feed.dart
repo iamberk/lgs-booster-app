@@ -1,9 +1,9 @@
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:lgsbooster/screens/pages/inf_feed.dart';
-import 'package:lgsbooster/screens/pages/paths.dart';
-import 'package:lgsbooster/screens/pages/streakers.dart';
+import 'feeds/inf_feed.dart';
+import 'feeds/paths.dart';
+import 'feeds/streakers.dart';
 
 class Feed extends StatefulWidget {
   const Feed({super.key});
@@ -13,7 +13,8 @@ class Feed extends StatefulWidget {
 }
 
 class _FeedState extends State<Feed> {
-  int pageIndex = 0;
+  int pageIndex = 1;
+  final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   List<Widget> views = const [Streakers(), InfFeed(), Paths()];
 
   @override
@@ -23,19 +24,29 @@ class _FeedState extends State<Feed> {
         title: const Text('LGS Booster'),
       ),
       bottomNavigationBar: CurvedNavigationBar(
+        key: _bottomNavigationKey,
         backgroundColor: Colors.transparent,
-        items: const [
+        items: [
           CurvedNavigationBarItem(
-            child: Icon(Icons.home_outlined),
-            label: 'Home',
+            child: Icon(
+              Icons.list,
+              color: Theme.of(context).primaryColor,
+            ),
+            label: 'Streakers',
           ),
           CurvedNavigationBarItem(
-            child: Icon(Icons.search),
-            label: 'Search',
+            child: Icon(
+              Icons.view_week,
+              color: Theme.of(context).primaryColor,
+            ),
+            label: 'Feed',
           ),
           CurvedNavigationBarItem(
-            child: Icon(Icons.chat_bubble_outline),
-            label: 'Chat',
+            child: Icon(
+              Icons.bookmarks,
+              color: Theme.of(context).primaryColor,
+            ),
+            label: 'Paths',
           ),
         ],
         onTap: (index) {
